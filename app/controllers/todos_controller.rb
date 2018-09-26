@@ -13,8 +13,12 @@ class TodosController < ApplicationController
   end
 
   def create
-    @todo = Todo.create todo_params
-    redirect_to todo_path(@todo)
+    @todo = Todo.new(todo_params)
+    if @todo.save
+      redirect_to todo_path(@todo), notice: 'Todo was successfully created.'
+    else
+      render :new
+    end
   end
 
   def edit
@@ -23,8 +27,11 @@ class TodosController < ApplicationController
 
   def update
     @todo = Todo.find(params[:id])
-    @todo.update todo_params
-    redirect_to todo_path(@todo)
+    if @todo.update(todo_params)
+      redirect_to todo_path(@todo)
+    else
+      render :edit
+    end
   end
 
   def destroy
