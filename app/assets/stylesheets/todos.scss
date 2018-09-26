@@ -1,6 +1,14 @@
 // Place all the styles related to the todos controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.field_with_errors {
+  display: inline;
+}
 .field_with_errors input{
   border: 2px solid red !important;
+}
+
+.field_with_errors .message {
+  color: red;
+  padding-left: 5px;
 }

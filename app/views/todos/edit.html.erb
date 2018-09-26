@@ -1,6 +1,5 @@
 <h1> Edit Todo </h1>
-<%= form_with model: @todo, local: true do |f| %>
-<%= render 'error', target: @todo %>
+<%= form_with model: @todo, local: true, :validate => true do |f| %>
   <%= f.label :title %>
   <%= f.text_field :title %><br />
 

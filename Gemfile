@@ -27,6 +27,11 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
+# Use jquery-rails
+gem 'jquery-rails'
+# Show inline error message
+gem 'client_side_validations'
+
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 
