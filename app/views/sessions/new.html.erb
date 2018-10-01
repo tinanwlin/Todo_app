@@ -1,0 +1,13 @@
+<h2>Log In</h2>
+<%= form_with model: @session, local: true do |f| %>
+  <div>
+    <%= f.label :email %>
+    <%= f.text_field :email %>
+  </div>
+  <div>
+    <%= f.label :password %>
+    <%= f.password_field :password %>
+  </div>
+  <%= f.submit "Login" %>
+<% end %>
+<p>No account yet? Click here to <%= link_to "Sign Up", signup_path %></p>

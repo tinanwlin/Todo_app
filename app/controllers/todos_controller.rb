@@ -1,7 +1,13 @@
 class TodosController < ApplicationController
 
   def index
-    @todos = Todo.all
+    if current_user
+      @todos = current_user.todos
+      render "index.html.erb"
+    else
+      flash[:warning] = "You must be logged in to see this page"
+      redirect_to login_path
+    end
   end
 
   def show
@@ -14,6 +20,7 @@ class TodosController < ApplicationController
 
   def create
     @todo = Todo.new(todo_params)
+    @todo.user_id = current_user.id
     if @todo.save
       redirect_to todo_path(@todo), notice: 'Todo was successfully created.'
     else
@@ -43,5 +50,4 @@ private
   def todo_params
     params.require(:todo).permit(:title, :description)
   end
-
 end

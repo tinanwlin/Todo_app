@@ -1,0 +1,21 @@
+<h2>Create Account</h2>
+<%= form_with model: @user, local: true do |f| %>
+  <div>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+  <div>
+    <%= f.label :email %>
+    <%= f.text_field :email %><br />
+  </div>
+  <div>
+    <%= f.label :password %>
+    <%= f.password_field :password %><br />
+  </div>
+  <div>
+    <%= f.label :password_confirmation %>
+    <%= f.password_field :password_confirmation %><br />
+  </div>
+  <%= f.submit "Sign Up" %>
+<% end %>
+<p>Have an account? Click here to <%= link_to "Log In", login_path %></p>
