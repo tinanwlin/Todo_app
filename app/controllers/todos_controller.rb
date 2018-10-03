@@ -5,7 +5,7 @@ class TodosController < ApplicationController
       @todos = current_user.todos
       render "index.html.erb"
     else
-      flash[:warning] = "You must be logged in to see this page"
+      flash[:alert] = "You must be logged in to see this page"
       redirect_to login_path
     end
   end
